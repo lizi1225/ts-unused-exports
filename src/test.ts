@@ -84,7 +84,7 @@ const setup: SetupFn = ({
       const result = analyzeTsConfig(
         pathFor(tsconfigFileName),
         fileNames ? JSON.parse(fileNames).map(pathFor) : undefined,
-      );
+      ).files;
       const tmp = `${getCtx('DIR')}/`;
       const withoutTmpDir = Object.keys(result).reduce((acc, k) => {
         acc[fixDot(k.replace(tmp, ''))] = result[k];

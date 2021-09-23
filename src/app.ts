@@ -1,9 +1,9 @@
 import * as ts from 'typescript';
 
-import analyze, { Analysis } from './analyzer';
+import analyze from './analyzer';
 import { dirname, resolve } from 'path';
 
-import { TsConfig } from './types';
+import { TsConfig, OutputFiles, File } from './types';
 import { extractOptionsFromFiles } from './argsParser';
 import parseFiles from './parser';
 import { readFileSync } from 'fs';
@@ -49,12 +49,17 @@ const loadTsConfig = (
   return { baseUrl, paths, files: explicitFiles || files };
 };
 
-export default (tsconfigPath: string, files?: string[]): Analysis => {
+export default (tsconfigPath: string, files?: string[]): OutputFiles => {
   const args = extractOptionsFromFiles(files);
   const tsConfig = loadTsConfig(tsconfigPath, args.tsFiles);
+  const importFiles:File[] = parseFiles(dirname(tsconfigPath), tsConfig, args.options);
 
-  return analyze(
-    parseFiles(dirname(tsconfigPath), tsConfig, args.options),
-    args.options,
-  );
+  return {
+    allFiles: tsConfig.files,
+    files: analyze(
+      importFiles,
+      args.options,
+    ),
+    importFiles,
+  }
 };

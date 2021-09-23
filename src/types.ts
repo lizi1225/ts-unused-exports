@@ -50,3 +50,8 @@ export interface ExtraCommandLineOptions {
   showLineNumber?: boolean;
   silent?: boolean;
 }
+export interface OutputFiles {
+  allFiles: string[];
+  files: Analysis;
+  importFiles: File[];
+}

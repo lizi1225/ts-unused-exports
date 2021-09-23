@@ -67,7 +67,7 @@ export const runCli = (
     const analysis = analyzeTsConfig(
       tsconfig,
       tsFiles.length ? tsFiles : undefined,
-    );
+    ).files;
 
     const files = Object.keys(analysis);
 
