@@ -1,13 +1,12 @@
 {
   "name": "fork-ts-unused-exports",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "ts-unused-exports finds unused exported symbols in your Typescript project",
   "main": "lib/app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pzavolinsky/ts-unused-exports.git"
+    "url": "https://github.com/lizi1225/ts-unused-exports"
   },
-  "funding": "https://github.com/pzavolinsky/ts-unused-exports?sponsor=1",
   "keywords": [
     "typescript",
     "tslint",
@@ -16,10 +15,7 @@
   ],
   "author": "Patricio Zavolinsky",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pzavolinsky/ts-unused-exports/issues"
-  },
-  "homepage": "https://github.com/pzavolinsky/ts-unused-exports",
+  "homepage": "https://github.com/lizi1225/ts-unused-exports",
   "scripts": {
     "build": "tsc",
     "exec": "bin/ts-unused-exports",
